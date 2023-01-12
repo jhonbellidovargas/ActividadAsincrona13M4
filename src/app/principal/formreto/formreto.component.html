@@ -1,0 +1,37 @@
+<section class="container-sm p-4 border rounded shadow">
+  <h2 class="text-center" style="color: blue">USO DE PIPES</h2>
+  <form>
+    <section class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="user" [(ngModel)]="texto" />
+    </section>
+    <p class="mt-4">Value: {{ texto | uppercase }}</p>
+  </form>
+</section>
+
+<section class="container-sm p-4 mt-4 border rounded shadow">
+  <h2 class="text-center" style="color: blue">CURRENCY PIPE</h2>
+  <form>
+    <section class="form-group">
+      <label for="valor">Valor</label>
+      <input
+        type="text"
+        class="form-control"
+        name="valor"
+        [(ngModel)]="valor"
+      />
+      <select name="currency" [(ngModel)]="tipo" class="mt-2 form-control">
+        <option value="">Seleciona el tipo de moneda</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="PEN">PEN</option>
+      </select>
+    </section>
+    <section *ngIf="tipo">
+      <p class="mt-4" *ngIf="tipo != 'PEN'">
+        {{ tipo }} {{ valor | currency : tipo }}
+      </p>
+      <p class="mt-4" *ngIf="tipo == 'PEN'">{{ tipo }} {{ valor | solperu }}</p>
+    </section>
+  </form>
+</section>

@@ -1,0 +1,26 @@
+<section class="container-sm">
+  <form>
+    <section class="form-group">
+      <label for="user">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name="user"
+        [(ngModel)]="model.username"
+      />
+    </section>
+    <section class="form-group">
+      <label for="pass">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="pass"
+        [(ngModel)]="model.password"
+      />
+    </section>
+    <section>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="cancel" class="btn btn-warning">Cancelar</button>
+    </section>
+  </form>
+</section>
